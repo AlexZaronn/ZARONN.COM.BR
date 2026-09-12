@@ -1,0 +1,1304 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Zaronn Estofados</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+
+<style>
+/* =============================================================
+   ZARONN ESTOFADOS — Vitrine Premium
+   Mobile-first. Breakpoints: 640px (tablet) e 1024px (desktop).
+   Identidade: cabeçalho preto + dourado da marca, catálogo off-white.
+   ============================================================= */
+
+:root {
+  --bg: #faf8f5;
+  --card-bg: #ffffff;
+  --text: #2b2622;
+  --text-muted: #6f6a63;
+  --border: #ece6dc;
+
+  --brand-dark: #0f0e0c;
+  --gold: #c69a3d;
+  --gold-light: #e3c07a;
+
+  --cta: #00c853;
+  --cta-hover: #00b04a;
+
+  --badge-bestseller: #ff6a00;
+  --badge-kit: #b8860b;
+  --badge-new: #7b3fe4;
+  --badge-couro: #3d332a;
+  --badge-destaque: #1e88e5;
+
+  --star-fill: #f5a623;
+  --star-empty: #e2ddd3;
+
+  --price-old: #9a938a;
+  --price-new: #d0271d;
+
+  /* Formato das fotos/vídeos do carrossel.
+     1 / 1 = quadrado (padrão)  |  4 / 5 = vertical (estilo Instagram/ML)
+     Troque aqui e TODOS os cards mudam junto. */
+  --card-ratio: 1 / 1;
+
+  --radius-lg: 16px;
+  --radius-md: 10px;
+  --shadow-card: 0 6px 24px rgba(43, 38, 34, 0.08);
+  --shadow-card-hover: 0 12px 32px rgba(43, 38, 34, 0.14);
+
+  --font-title: "Montserrat", "Segoe UI", sans-serif;
+  --font-body: "Inter", "Segoe UI", sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-inline: 20px;
+}
+
+/* ---------------- HEADER ---------------- */
+.site-header {
+  background: var(--brand-dark);
+  padding-block: 14px;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+.header-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+.logo img { height: 40px; width: auto; }
+
+.trust-bar {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px 18px;
+  margin: 0;
+  padding: 0;
+  font-size: 0.74rem;
+  color: #b9b0a3;
+}
+
+@media (min-width: 768px) {
+  .header-inner { flex-direction: row; justify-content: space-between; }
+  .logo img { height: 48px; }
+  .trust-bar { justify-content: flex-end; font-size: 0.78rem; }
+}
+
+/* ---------------- HERO ---------------- */
+.hero { padding-block: 40px 24px; text-align: center; }
+.hero h1 {
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: clamp(1.55rem, 4vw, 2.3rem);
+  margin: 0 0 12px;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+.hero p { color: var(--text-muted); max-width: 580px; margin: 0 auto; font-size: 0.98rem; }
+
+/* ---------------- FILTROS ---------------- */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  padding-block: 4px 28px;
+}
+.chip {
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  color: var(--text-muted);
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+.chip:hover { border-color: var(--gold); color: var(--text); }
+.chip.active {
+  background: var(--brand-dark);
+  border-color: var(--brand-dark);
+  color: var(--gold-light);
+  font-weight: 600;
+}
+
+/* ---------------- GRID ---------------- */
+.catalog { padding-bottom: 60px; }
+.product-grid { display: grid; grid-template-columns: 1fr; gap: 28px; }
+@media (min-width: 640px) { .product-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .product-grid { grid-template-columns: repeat(3, 1fr); gap: 32px; } }
+
+.product-card[hidden] { display: none; }
+
+/* ---------------- CARD ---------------- */
+.product-card {
+  background: var(--card-bg);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+.product-card:hover { box-shadow: var(--shadow-card-hover); transform: translateY(-2px); }
+
+.card-media { position: relative; }
+.card-body { padding: 18px 18px 22px; display: flex; flex-direction: column; gap: 12px; flex: 1; }
+
+/* ---------------- BADGES ---------------- */
+.badges {
+  position: absolute;
+  top: 12px; left: 12px;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: flex-start;
+}
+.badge {
+  color: #fff;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  padding: 5px 10px;
+  border-radius: 999px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+.badge-bestseller { background: var(--badge-bestseller); }
+.badge-kit        { background: var(--badge-kit); }
+.badge-new        { background: var(--badge-new); }
+.badge-couro      { background: var(--badge-couro); }
+.badge-destaque   { background: var(--badge-destaque); }
+
+/* ---------------- CARROSSEL ---------------- */
+.carousel { position: relative; overflow: hidden; aspect-ratio: var(--card-ratio); background: var(--border); touch-action: pan-y; }
+.carousel-track { display: flex; height: 100%; transition: transform 0.35s ease; }
+.carousel-slide { flex: 0 0 100%; width: 100%; height: 100%; object-fit: cover; user-select: none; }
+
+/* slide de vídeo */
+.slide-video { position: relative; overflow: hidden; }
+.slide-video video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.video-pill {
+  position: absolute;
+  left: 10px; bottom: 10px;
+  display: inline-flex; align-items: center; gap: 5px;
+  background: rgba(15, 14, 12, 0.72);
+  color: #fff;
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 4px 9px;
+  border-radius: 999px;
+  backdrop-filter: blur(4px);
+}
+.video-pill::before {
+  content: "";
+  width: 0; height: 0;
+  border-left: 6px solid #fff;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+}
+
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255,255,255,0.85);
+  color: var(--text);
+  font-size: 1.2rem; line-height: 1;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  z-index: 6;
+}
+.carousel-arrow.prev { left: 10px; }
+.carousel-arrow.next { right: 10px; }
+.carousel-arrow:hover { background: #fff; }
+
+.carousel-dots { position: absolute; bottom: 10px; left: 0; right: 0; display: flex; justify-content: center; gap: 6px; z-index: 6; }
+.carousel-dots .dot { width: 6px; height: 6px; border-radius: 50%; border: none; background: rgba(255,255,255,0.7); padding: 0; cursor: pointer; }
+.carousel-dots .dot.active { background: #fff; width: 16px; border-radius: 4px; }
+
+/* ---------------- TÍTULO ---------------- */
+.product-title { font-family: var(--font-title); font-weight: 700; font-size: 1.02rem; margin: 0; letter-spacing: -0.01em; }
+
+/* ---------------- AVALIAÇÃO ---------------- */
+.rating { display: flex; align-items: center; gap: 6px; font-size: 0.82rem; color: var(--text-muted); }
+.stars { position: relative; display: inline-block; font-size: 0.95rem; color: var(--star-empty); line-height: 1; }
+.stars::before { content: "\2605\2605\2605\2605\2605"; }
+.stars span { position: absolute; top: 0; left: 0; width: var(--rating, 100%); overflow: hidden; white-space: nowrap; color: var(--star-fill); }
+.stars span::before { content: "\2605\2605\2605\2605\2605"; }
+.rating-number { font-weight: 700; color: var(--text); font-variant-numeric: tabular-nums; }
+
+/* ---------------- PREÇO ---------------- */
+.price-block { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; }
+.price-old { color: var(--price-old); text-decoration: line-through; font-size: 0.85rem; font-variant-numeric: tabular-nums; }
+.price-new { color: var(--price-new); font-size: 1.38rem; font-weight: 800; font-family: var(--font-title); font-variant-numeric: tabular-nums; }
+.price-installments { width: 100%; font-size: 0.82rem; color: var(--text-muted); }
+.price-installments strong { color: var(--text); }
+
+/* ---------------- SPECS ---------------- */
+.specs { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px; font-size: 0.85rem; color: var(--text-muted); }
+.specs li { padding-left: 14px; position: relative; }
+.specs li::before { content: ""; position: absolute; left: 0; top: 0.55em; width: 5px; height: 5px; border-radius: 50%; background: var(--gold); }
+.specs strong { color: var(--text); }
+
+/* ---------------- CORES ---------------- */
+.colors {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 8px;
+  padding-top: 2px;
+  border-top: 1px solid var(--border);
+  margin-top: 2px;
+  padding-block-start: 12px;
+}
+.colors-label { font-size: 0.8rem; font-weight: 600; color: var(--text); }
+.swatches { display: flex; gap: 5px; }
+.swatch {
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  border: 1px solid rgba(0,0,0,0.12);
+  box-shadow: inset 0 0 0 2px #fff;
+}
+.colors-names { width: 100%; font-size: 0.76rem; color: var(--text-muted); }
+
+/* ---------------- CTA ---------------- */
+.btn-buy {
+  width: 100%;
+  border: none;
+  background: var(--cta);
+  color: #fff;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 14px 18px;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  margin-top: auto;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+.btn-buy:hover { background: var(--cta-hover); }
+.btn-buy:active { transform: scale(0.98); }
+.btn-buy:focus-visible { outline: 3px solid #0b6; outline-offset: 2px; }
+
+/* ---------------- SELOS ---------------- */
+.trust-icons { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; font-size: 0.72rem; color: var(--text-muted); }
+.trust-item { display: inline-flex; align-items: center; gap: 5px; }
+
+/* ---------------- FOOTER ---------------- */
+.site-footer {
+  background: var(--brand-dark);
+  color: #b9b0a3;
+  padding-block: 32px 40px;
+  text-align: center;
+  font-size: 0.8rem;
+}
+.site-footer .logo-footer { height: 34px; width: auto; margin: 0 auto 14px; }
+.footer-note { margin-top: 4px; opacity: 0.75; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition-duration: 0.01ms !important; }
+}
+
+
+/* ---------- somente nesta prévia ---------- */
+.preview-note { background: #1b1917; color: #f4efe8; font-size: 0.78rem; line-height: 1.5; padding-block: 10px; }
+.preview-note .container { display: flex; flex-wrap: wrap; gap: 4px 10px; align-items: baseline; }
+.preview-note strong { color: #e3c07a; font-weight: 600; }
+
+.toast {
+  position: fixed; left: 50%; bottom: 24px; transform: translate(-50%, 20px);
+  background: #1b1917; color: #fff; padding: 14px 18px; border-radius: 12px;
+  font-size: 0.82rem; line-height: 1.5; max-width: min(440px, calc(100vw - 32px));
+  box-shadow: 0 12px 32px rgba(0,0,0,0.28);
+  opacity: 0; pointer-events: none; z-index: 50;
+  transition: opacity 0.22s ease, transform 0.22s ease;
+}
+.toast.show { opacity: 1; transform: translate(-50%, 0); }
+.toast code { color: #7ef0a8; font-size: 0.78rem; word-break: break-all; }
+.toast .toast-sub { display: block; margin-top: 6px; color: #c9c1b6; font-size: 0.75rem; }
+
+</style>
+
+<div class="preview-note">
+  <div class="container">
+    <span><strong>Prévia:</strong> fotos, vídeos e links dos anúncios já são os reais.
+    Os <strong>preços e as avaliações ainda são de exemplo</strong>. Ao clicar em comprar, aparece o evento
+    que o Meta Pixel receberia e o anúncio abre em uma nova aba.</span>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="#catalogo" class="logo"><img src="logo-zaronn.png" alt="Zaronn Estofados"></a>
+    <ul class="trust-bar">
+        <li>🔒 Compra 100% Segura</li>
+        <li>💳 Parcelamento no cartão</li>
+        <li>🛋️ Estofados de alto padrão</li>
+      </ul>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="container">
+      <h1>Conforto de Alto Padrão para a Sua Casa</h1>
+      <p>Kits e poltronas em linho, bouclê e couro sintético — escolha o modelo e finalize a compra com segurança no Mercado Livre.</p>
+    </div>
+  </section>
+
+  <section class="catalog container" id="catalogo">
+    <div class="filters">
+        <button type="button" class="chip active" data-filter="todos">Todos</button>
+        <button type="button" class="chip" data-filter="kit-puff">Kits com Puff</button>
+        <button type="button" class="chip" data-filter="kit">Kits de Poltronas</button>
+        <button type="button" class="chip" data-filter="individual">Poltronas Individuais</button>
+        <button type="button" class="chip" data-filter="couro">Couro Sintético</button>
+    </div>
+
+    <div class="product-grid">
+
+      <article class="product-card" data-cat="kit-puff">
+        <div class="card-media">
+          <div class="badges">
+            <span class="badge badge-bestseller">Mais Vendido</span>
+          </div>
+          <div class="carousel" data-carousel>
+            <div class="carousel-track">
+              <img class="carousel-slide" src="vivienne-kit2-puff-1.jpg" alt="Kit 2 Poltronas Vivienne + 1 Puff - foto 1" loading="lazy">
+              <div class="carousel-slide slide-video">
+                <video src="vivienne-kit2-puff-video.mp4" poster="vivienne-kit2-puff-1.jpg"
+                       muted loop playsinline preload="metadata"></video>
+                <span class="video-pill">Vídeo</span>
+              </div>
+              <img class="carousel-slide" src="vivienne-kit2-puff-2.jpg" alt="Kit 2 Poltronas Vivienne + 1 Puff - foto 2" loading="lazy">
+              <img class="carousel-slide" src="vivienne-kit2-puff-3.jpg" alt="Kit 2 Poltronas Vivienne + 1 Puff - foto 3" loading="lazy">
+              <img class="carousel-slide" src="vivienne-kit2-puff-4.jpg" alt="Kit 2 Poltronas Vivienne + 1 Puff - foto 4" loading="lazy">
+            </div>
+            <button type="button" class="carousel-arrow prev" data-dir="-1" aria-label="Foto anterior">&#8249;</button>
+            <button type="button" class="carousel-arrow next" data-dir="1" aria-label="Próxima foto">&#8250;</button>
+            <div class="carousel-dots"></div>
+          </div>
+        </div>
+
+        <div class="card-body">
+          <h2 class="product-title">Kit 2 Poltronas Vivienne + 1 Puff</h2>
+
+          <div class="rating" aria-label="Avaliação 4.9 de 5, 412 avaliações">
+            <div class="stars" style="--rating:98%"><span></span></div>
+            <span class="rating-number">4,9</span>
+            <span class="rating-count">(412 avaliações)</span>
+          </div>
+
+          <!-- PREÇO: os valores abaixo são o PLANO B (aparecem se a atualização
+               automática falhar). Mantenha-os sempre com o preço correto.
+               data-ml-id é o código do anúncio usado pelo robô de preços. -->
+          <div class="price-block" data-slug="vivienne-kit2-puff" data-ml-id="MLBU4112068864">
+            <span class="price-old">R$ 2.599,00</span>
+            <span class="price-new">R$ 1.899,00</span>
+            <span class="price-installments">em até <strong>10x de R$ 189,90</strong> sem juros</span>
+          </div>
+
+          <ul class="specs">
+            <li><strong>Medidas:</strong> 56 x 87 x 84 cm (L x P x A)</li>
+            <li><strong>Tecido:</strong> Linho Premium</li>
+            <li><strong>Peso suportado:</strong> até 130 kg</li>
+          </ul>
+
+          <div class="colors">
+            <span class="colors-label">Cores:</span>
+            <div class="swatches">
+              <span class="swatch" style="background:#d8c4a4" title="Bege" aria-label="Bege"></span>
+              <span class="swatch" style="background:#b7bbbd" title="Cinza Claro" aria-label="Cinza Claro"></span>
+              <span class="swatch" style="background:#5d6265" title="Cinza Escuro" aria-label="Cinza Escuro"></span>
+              <span class="swatch" style="background:#6d4a33" title="Marrom" aria-label="Marrom"></span>
+            </div>
+            <span class="colors-names">Bege, Cinza Claro, Cinza Escuro, Marrom</span>
+          </div>
+
+          <button type="button"
+                  class="btn-buy"
+                  data-product-name="Kit 2 Poltronas Vivienne + 1 Puff"
+                  data-url="https://www.mercadolivre.com.br/kit-2-poltronas-decorativas--puff-linho-pes-madeira-sala/up/MLBU4112068864?picker=true&quantity=1">
+            Comprar no Mercado Livre
+          </button>
+
+          <div class="trust-icons">
+            <span class="trust-item"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M12 2 4 5v6c0 5 3.4 8.9 8 10 4.6-1.1 8-5 8-10V5l-8-3Zm-1.2 13.6-3.4-3.4 1.4-1.4 2 2 4.8-4.8 1.4 1.4-6.2 6.2Z"/></svg> Compra Segura</span>
+            <span class="trust-item"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4H4V6h16v2ZM4 18v-6h16v6H4Zm2-4h6v2H6v-2Z"/></svg> Pagamento via Mercado Pago</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="product-card" data-cat="kit-puff">
+        <div class="card-media">
+          <div class="badges">
+            <span class="badge badge-kit">Kit + Puff</span>
+          </div>
+          <div class="carousel" data-carousel>
+            <div class="carousel-track">
+              <img class="carousel-slide" src="celine-kit2-puff-1.jpg" alt="Kit 2 Poltronas Celine + 1 Puff - foto 1" loading="lazy">
+              <div class="carousel-slide slide-video">
+                <video src="celine-kit2-puff-video.mp4" poster="celine-kit2-puff-1.jpg"
+                       muted loop playsinline preload="metadata"></video>
+                <span class="video-pill">Vídeo</span>
+              </div>
+              <img class="carousel-slide" src="celine-kit2-puff-2.jpg" alt="Kit 2 Poltronas Celine + 1 Puff - foto 2" loading="lazy">
+              <img class="carousel-slide" src="celine-kit2-puff-3.jpg" alt="Kit 2 Poltronas Celine + 1 Puff - foto 3" loading="lazy">
+              <img class="carousel-slide" src="celine-kit2-puff-4.jpg" alt="Kit 2 Poltronas Celine + 1 Puff - foto 4" loading="lazy">
+            </div>
+            <button type="button" class="carousel-arrow prev" data-dir="-1" aria-label="Foto anterior">&#8249;</button>
+            <button type="button" class="carousel-arrow next" data-dir="1" aria-label="Próxima foto">&#8250;</button>
+            <div class="carousel-dots"></div>
+          </div>
+        </div>
+
+        <div class="card-body">
+          <h2 class="product-title">Kit 2 Poltronas Celine + 1 Puff</h2>
+
+          <div class="rating" aria-label="Avaliação 4.8 de 5, 236 avaliações">
+            <div class="stars" style="--rating:96%"><span></span></div>
+            <span class="rating-number">4,8</span>
+            <span class="rating-count">(236 avaliações)</span>
+          </div>
+
+          <!-- PREÇO: os valores abaixo são o PLANO B (aparecem se a atualização
+               automática falhar). Mantenha-os sempre com o preço correto.
+               data-ml-id é o código do anúncio usado pelo robô de preços. -->
+          <div class="price-block" data-slug="celine-kit2-puff" data-ml-id="MLBU4096654879">
+            <span class="price-old">R$ 2.499,00</span>
+            <span class="price-new">R$ 1.849,00</span>
+            <span class="price-installments">em até <strong>10x de R$ 184,90</strong> sem juros</span>
+          </div>
+
+          <ul class="specs">
+            <li><strong>Medidas:</strong> 56 x 87 x 84 cm (L x P x A)</li>
+            <li><strong>Tecido:</strong> Linho Premium</li>
+            <li><strong>Peso suportado:</strong> até 130 kg</li>
+          </ul>
+
+          <div class="colors">
+            <span class="colors-label">Cores:</span>
+            <div class="swatches">
+              <span class="swatch" style="background:#d8c4a4" title="Bege" aria-label="Bege"></span>
+              <span class="swatch" style="background:#b7bbbd" title="Cinza Claro" aria-label="Cinza Claro"></span>
+              <span class="swatch" style="background:#5d6265" title="Cinza Escuro" aria-label="Cinza Escuro"></span>
+            </div>
+            <span class="colors-names">Bege, Cinza Claro, Cinza Escuro</span>
+          </div>
+
+          <button type="button"
+                  class="btn-buy"
+                  data-product-name="Kit 2 Poltronas Celine + 1 Puff"
+                  data-url="https://www.mercadolivre.com.br/kit-2-poltronas-decorativas--puff-linho-pes-madeira-sala/up/MLBU4096654879?picker=true&quantity=1">
+            Comprar no Mercado Livre
+          </button>
+
+          <div class="trust-icons">
+            <span class="trust-item"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M12 2 4 5v6c0 5 3.4 8.9 8 10 4.6-1.1 8-5 8-10V5l-8-3Zm-1.2 13.6-3.4-3.4 1.4-1.4 2 2 4.8-4.8 1.4 1.4-6.2 6.2Z"/></svg> Compra Segura</span>
+            <span class="trust-item"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4H4V6h16v2ZM4 18v-6h16v6H4Zm2-4h6v2H6v-2Z"/></svg> Pagamento via Mercado Pago</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="product-card" data-cat="kit-puff">
+        <div class="card-media">
+          <div class="badges">
+            <span class="badge badge-kit">Kit + Puff</span>
+          </div>
+          <div class="carousel" data-carousel>
+            <div class="carousel-track">
+              <img class="carousel-slide" src="amelie-kit2-puff-1.jpg" alt="Kit 2 Poltronas Amélie + 1 Puff - foto 1" loading="lazy">
+              <div class="carousel-slide slide-video">
+                <video src="amelie-kit2-puff-video.mp4" poster="amelie-kit2-puff-1.jpg"
+                       muted loop playsinline preload="metadata"></video>
+                <span class="video-pill">Vídeo</span>
+              </div>
+              <img class="carousel-slide" src="amelie-kit2-puff-2.jpg" alt="Kit 2 Poltronas Amélie + 1 Puff - foto 2" loading="lazy">
+              <img class="carousel-slide" src="amelie-kit2-puff-3.jpg" alt="Kit 2 Poltronas Amélie + 1 Puff - foto 3" loading="lazy">
+              <img class="carousel-slide" src="amelie-kit2-puff-4.jpg" alt="Kit 2 Poltronas Amélie + 1 Puff - foto 4" loading="lazy">
+            </div>
+            <button type="button" class="carousel-arrow prev" data-dir="-1" aria-label="Foto anterior">&#8249;</button>
+            <button type="button" class="carousel-arrow next" data-dir="1" aria-label="Próxima foto">&#8250;</button>
+            <div class="carousel-dots"></div>
+          </div>
+        </div>
+
+        <div class="card-body">
+          <h2 class="product-title">Kit 2 Poltronas Amélie + 1 Puff</h2>
+
+          <div class="rating" aria-label="Avaliação 4.8 de 5, 189 avaliações">
+            <div class="stars" style="--rating:96%"><span></span></div>
+            <span class="rating-number">4,8</span>
+            <span class="rating-count">(189 avaliações)</span>
+          </div>
+
+          <!-- PREÇO: os valores abaixo são o PLANO B (aparecem se a atualização
+               automática falhar). Mantenha-os sempre com o preço correto.
+               data-ml-id é o código do anúncio usado pelo robô de preços. -->
+          <div class="price-block" data-slug="amelie-kit2-puff" data-ml-id="MLBU4096653063">
+            <span class="price-old">R$ 2.299,00</span>
+            <span class="price-new">R$ 1.699,00</span>
+            <span class="price-installments">em até <strong>10x de R$ 169,90</strong> sem juros</span>
+          </div>
+
+          <ul class="specs">
+            <li><strong>Medidas:</strong> 56 x 78 x 80 cm (L x P x A)</li>
+            <li><strong>Tecido:</strong> Linho Premium</li>
+            <li><strong>Peso suportado:</strong> até 130 kg</li>
+          </ul>
+
+          <div class="colors">
+            <span class="colors-label">Cores:</span>
+            <div class="swatches">
+              <span class="swatch" style="background:#d8c4a4" title="Bege" aria-label="Bege"></span>
+              <span class="swatch" style="background:#b7bbbd" title="Cinza Claro" aria-label="Cinza Claro"></span>
+              <span class="swatch" style="background:#5d6265" title="Cinza Escuro" aria-label="Cinza Escuro"></span>
+            </div>
+            <span class="colors-names">Bege, Cinza Claro, Cinza Escuro</span>
+          </div>
+
+          <button type="button"
+                  class="btn-buy"
+                  data-product-name="Kit 2 Poltronas Amélie + 1 Puff"
+                  data-url="https://www.mercadolivre.com.br/kit-2-poltronas-decorativas--puff-linho-pes-madeira-sala/up/MLBU4096653063?picker=true&quantity=1">
+            Comprar no Mercado Livre
+          </button>
+
+          <div class="trust-icons">
+            <span class="trust-item"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M12 2 4 5v6c0 5 3.4 8.9 8 10 4.6-1.1 8-5 8-10V5l-8-3Zm-1.2 13.6-3.4-3.4 1.4-1.4 2 2 4.8-4.8 1.4 1.4-6.2 6.2Z"/></svg> Compra Segura</span>
+            <span class="trust-item"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4H4V6h16v2ZM4 18v-6h16v6H4Zm2-4h6v2H6v-2Z"/></svg> Pagamento via Mercado Pago</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="product-card" data-cat="kit couro">
+        <div class="card-media">
+          <div class="badges">
+            <span class="badge badge-couro">Couro Sintético</span>
+          </div>
+          <div class="carousel" data-carousel>
+            <div class="carousel-track">
+              <img class="carousel-slide" src="celine-kit2-couro-1.jpg" alt="Kit 2 Poltronas Celine Couro Sintético - foto 1" loading="lazy">
+              <div class="carousel-slide slide-video">
+                <video src="celine-kit2-couro-video.mp4" poster="celine-kit2-couro-1.jpg"
+                       muted loop playsinline preload="metadata"></video>
+                <span class="video-pill">Vídeo</span>
+              </div>
+              <img class="carousel-slide" src="celine-kit2-couro-2.jpg" alt="Kit 2 Poltronas Celine Couro Sintético - foto 2" loading="lazy">
+              <img class="carousel-slide" src="celine-kit2-couro-3.jpg" alt="Kit 2 Poltronas Celine Couro Sintético - foto 3" loading="lazy">
+              <img class="carousel-slide" src="celine-kit2-couro-4.jpg" alt="Kit 2 Poltronas Celine Couro Sintético - foto 4" loading="lazy">
+            </div>
+            <button type="button" class="carousel-arrow prev" data-dir="-1" aria-label="Foto anterior">&#8249;</button>
+            <button type="button" class="carousel-arrow next" data-dir="1" aria-label="Próxima foto">&#8250;</button>
+            <div class="carousel-dots"></div>
+          </div>
+        </div>
+
+        <div class="card-body">
+          <h2 class="product-title">Kit 2 Poltronas Celine Couro Sintético</h2>
+
+          <div class="rating" aria-label="Avaliação 4.7 de 5, 143 avaliações">
+            <div class="stars" style="--rating:94%"><span></span></div>
+            <span class="rating-number">4,7</span>
+            <span class="rating-count">(143 avaliações)</span>
+          </div>
+
+          <!-- PREÇO: os valores abaixo são o PLANO B (aparecem se a atualização
+               automática falhar). Mantenha-os sempre com o preço correto.
+               data-ml-id é o código do anúncio usado pelo robô de preços. -->
+          <div class="price-block" data-slug="celine-kit2-couro" data-ml-id="MLBU3861232860">
+            <span class="price-old">R$ 2.399,00</span>
+            <span class="price-new">R$ 1.799,00</span>
+            <span class="price-installments">em até <strong>10x de R$ 179,90</strong> sem juros</span>
+          </div>
+
+          <ul class="specs">
+            <li><strong>Medidas:</strong> 56 x 87 x 84 cm (L x P x A)</li>
+            <li><strong>Tecido:</strong> Couro sintético de alta qualidade</li>
+            <li><strong>Peso suportado:</strong> até 130 kg</li>
+          </ul>
+
+          <div class="colors">
+            <span class="colors-label">Cores:</span>
+            <div class="swatches">
+              <span class="swatch" style="background:#1d1d1d" title="Preto" aria-label="Preto"></span>
+              <span class="swatch" style="background:#a8622c" title="Caramelo" aria-label="Caramelo"></span>
+            </div>
+            <span class="colors-names">Preto, Caramelo</span>
+          </div>
+
+          <button type="button"
+                  class="btn-buy"
+                  data-product-name="Kit 2 Poltronas Celine Couro Sintético"
+                  data-url="https://www.mercadolivre.com.br/kit-2-poltronas-luxo-decorativas-couro-e-linho-recepcao-sala/up/MLBU3861232860?picker=true&product_trigger_id=MLB70815825&quantity=1">
+            Comprar no Mercado Livre
+          </button>
+
+          <div class="trust-icons">
+            <span class="trust-item"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M12 2 4 5v6c0 5 3.4 8.9 8 10 4.6-1.1 8-5 8-10V5l-8-3Zm-1.2 13.6-3.4-3.4 1.4-1.4 2 2 4.8-4.8 1.4 1.4-6.2 6.2Z"/></svg> Compra Segura</span>
+            <span class="trust-item"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4H4V6h16v2ZM4 18v-6h16v6H4Zm2-4h6v2H6v-2Z"/></svg> Pagamento via Mercado Pago</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="product-card" data-cat="individual">
+        <div class="card-media">
+          <div class="badges">
+            <span class="badge badge-destaque">Suporta 180 kg</span>
+          </div>
+          <div class="carousel" data-carousel>
+            <div class="carousel-track">
+              <img class="carousel-slide" src="organica-redonda-1.jpg" alt="Poltrona Orgânica Redonda - foto 1" loading="lazy">
+              <div class="carousel-slide slide-video">
+                <video src="organica-redonda-video.mp4" poster="organica-redonda-1.jpg"
+                       muted loop playsinline preload="metadata"></video>
+                <span class="video-pill">Vídeo</span>
+              </div>
+              <img class="carousel-slide" src="organica-redonda-2.jpg" alt="Poltrona Orgânica Redonda - foto 2" loading="lazy">
+              <img class="carousel-slide" src="organica-redonda-3.jpg" alt="Poltrona Orgânica Redonda - foto 3" loading="lazy">
+              <img class="carousel-slide" src="organica-redonda-4.jpg" alt="Poltrona Orgânica Redonda - foto 4" loading="lazy">
+            </div>
+            <button type="button" class="carousel-arrow prev" data-dir="-1" aria-label="Foto anterior">&#8249;</button>
+            <button type="button" class="carousel-arrow next" data-dir="1" aria-label="Próxima foto">&#8250;</button>
+            <div class="carousel-dots"></div>
+          </div>
+        </div>
+
+        <div class="card-body">
+          <h2 class="product-title">Poltrona Orgânica Redonda</h2>
+
+          <div class="rating" aria-label="Avaliação 4.9 de 5, 97 avaliações">
+            <div class="stars" style="--rating:98%"><span></span></div>
+            <span class="rating-number">4,9</span>
+            <span class="rating-count">(97 avaliações)</span>
+          </div>
+
+          <!-- PREÇO: os valores abaixo são o PLANO B (aparecem se a atualização
+               automática falhar). Mantenha-os sempre com o preço correto.
+               data-ml-id é o código do anúncio usado pelo robô de preços. -->
+          <div class="price-block" data-slug="organica-redonda" data-ml-id="MLBU5180485892">
+            <span class="price-old">R$ 1.899,00</span>
+            <span class="price-new">R$ 1.399,00</span>
+            <span class="price-installments">em até <strong>10x de R$ 139,90</strong> sem juros</span>
+          </div>
+
+          <ul class="specs">
+            <li><strong>Medidas:</strong> 80 x 80 x 76 cm (L x P x A)</li>
+            <li><strong>Tecido:</strong> Bouclê Premium</li>
+            <li><strong>Peso suportado:</strong> até 180 kg</li>
+          </ul>
+
+          <div class="colors">
+            <span class="colors-label">Cores:</span>
+            <div class="swatches">
+              <span class="swatch" style="background:#f1ece4" title="Off-White" aria-label="Off-White"></span>
+              <span class="swatch" style="background:#b7bbbd" title="Cinza Claro" aria-label="Cinza Claro"></span>
+              <span class="swatch" style="background:#b5613f" title="Terracota" aria-label="Terracota"></span>
+            </div>
+            <span class="colors-names">Off-White, Cinza Claro, Terracota</span>
+          </div>
+
+          <button type="button"
+                  class="btn-buy"
+                  data-product-name="Poltrona Orgânica Redonda"
+                  data-url="https://www.mercadolivre.com.br/poltrona-organica-redonda-estofada-em-boucle-premium/up/MLBU5180485892?picker=true&quantity=1">
+            Comprar no Mercado Livre
+          </button>
+
+          <div class="trust-icons">
+            <span class="trust-item"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M12 2 4 5v6c0 5 3.4 8.9 8 10 4.6-1.1 8-5 8-10V5l-8-3Zm-1.2 13.6-3.4-3.4 1.4-1.4 2 2 4.8-4.8 1.4 1.4-6.2 6.2Z"/></svg> Compra Segura</span>
+            <span class="trust-item"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4H4V6h16v2ZM4 18v-6h16v6H4Zm2-4h6v2H6v-2Z"/></svg> Pagamento via Mercado Pago</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="product-card" data-cat="individual">
+        <div class="card-media">
+          <div class="badges">
+            <span class="badge badge-new">Lançamento</span>
+          </div>
+          <div class="carousel" data-carousel>
+            <div class="carousel-track">
+              <img class="carousel-slide" src="balance-1.jpg" alt="Poltrona Balance - foto 1" loading="lazy">
+              <img class="carousel-slide" src="balance-2.jpg" alt="Poltrona Balance - foto 2" loading="lazy">
+              <img class="carousel-slide" src="balance-3.jpg" alt="Poltrona Balance - foto 3" loading="lazy">
+              <img class="carousel-slide" src="balance-4.jpg" alt="Poltrona Balance - foto 4" loading="lazy">
+            </div>
+            <button type="button" class="carousel-arrow prev" data-dir="-1" aria-label="Foto anterior">&#8249;</button>
+            <button type="button" class="carousel-arrow next" data-dir="1" aria-label="Próxima foto">&#8250;</button>
+            <div class="carousel-dots"></div>
+          </div>
+        </div>
+
+        <div class="card-body">
+          <h2 class="product-title">Poltrona Balance</h2>
+
+          <div class="rating" aria-label="Avaliação 4.8 de 5, 41 avaliações">
+            <div class="stars" style="--rating:96%"><span></span></div>
+            <span class="rating-number">4,8</span>
+            <span class="rating-count">(41 avaliações)</span>
+          </div>
+
+          <!-- PREÇO: os valores abaixo são o PLANO B (aparecem se a atualização
+               automática falhar). Mantenha-os sempre com o preço correto.
+               data-ml-id é o código do anúncio usado pelo robô de preços. -->
+          <div class="price-block" data-slug="balance" data-ml-id="MLBU5185645694">
+            <span class="price-old">R$ 2.199,00</span>
+            <span class="price-new">R$ 1.649,00</span>
+            <span class="price-installments">em até <strong>10x de R$ 164,90</strong> sem juros</span>
+          </div>
+
+          <ul class="specs">
+            <li><strong>Medidas:</strong> 62 x 135 x 67 cm (L x P x A)</li>
+            <li><strong>Tecido:</strong> Bouclê Premium</li>
+            <li><strong>Peso suportado:</strong> até 130 kg</li>
+          </ul>
+
+          <div class="colors">
+            <span class="colors-label">Cores:</span>
+            <div class="swatches">
+              <span class="swatch" style="background:#d8c4a4" title="Bege" aria-label="Bege"></span>
+              <span class="swatch" style="background:#b7bbbd" title="Cinza Claro" aria-label="Cinza Claro"></span>
+              <span class="swatch" style="background:#b5613f" title="Terracota" aria-label="Terracota"></span>
+            </div>
+            <span class="colors-names">Bege, Cinza Claro, Terracota</span>
+          </div>
+
+          <button type="button"
+                  class="btn-buy"
+                  data-product-name="Poltrona Balance"
+                  data-url="https://www.mercadolivre.com.br/poltrona-balance-para-sala-com-leve-balanco-boucle-premium/up/MLBU5185645694?picker=true&quantity=1">
+            Comprar no Mercado Livre
+          </button>
+
+          <div class="trust-icons">
+            <span class="trust-item"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M12 2 4 5v6c0 5 3.4 8.9 8 10 4.6-1.1 8-5 8-10V5l-8-3Zm-1.2 13.6-3.4-3.4 1.4-1.4 2 2 4.8-4.8 1.4 1.4-6.2 6.2Z"/></svg> Compra Segura</span>
+            <span class="trust-item"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4H4V6h16v2ZM4 18v-6h16v6H4Zm2-4h6v2H6v-2Z"/></svg> Pagamento via Mercado Pago</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="product-card" data-cat="kit">
+        <div class="card-media">
+          <div class="carousel" data-carousel>
+            <div class="carousel-track">
+              <img class="carousel-slide" src="vivienne-kit2-1.jpg" alt="Kit 2 Poltronas Vivienne - foto 1" loading="lazy">
+              <div class="carousel-slide slide-video">
+                <video src="vivienne-kit2-video.mp4" poster="vivienne-kit2-1.jpg"
+                       muted loop playsinline preload="metadata"></video>
+                <span class="video-pill">Vídeo</span>
+              </div>
+              <img class="carousel-slide" src="vivienne-kit2-2.jpg" alt="Kit 2 Poltronas Vivienne - foto 2" loading="lazy">
+              <img class="carousel-slide" src="vivienne-kit2-3.jpg" alt="Kit 2 Poltronas Vivienne - foto 3" loading="lazy">
+              <img class="carousel-slide" src="vivienne-kit2-4.jpg" alt="Kit 2 Poltronas Vivienne - foto 4" loading="lazy">
+            </div>
+            <button type="button" class="carousel-arrow prev" data-dir="-1" aria-label="Foto anterior">&#8249;</button>
+            <button type="button" class="carousel-arrow next" data-dir="1" aria-label="Próxima foto">&#8250;</button>
+            <div class="carousel-dots"></div>
+          </div>
+        </div>
+
+        <div class="card-body">
+          <h2 class="product-title">Kit 2 Poltronas Vivienne</h2>
+
+          <div class="rating" aria-label="Avaliação 4.8 de 5, 274 avaliações">
+            <div class="stars" style="--rating:96%"><span></span></div>
+            <span class="rating-number">4,8</span>
+            <span class="rating-count">(274 avaliações)</span>
+          </div>
+
+          <!-- PREÇO: os valores abaixo são o PLANO B (aparecem se a atualização
+               automática falhar). Mantenha-os sempre com o preço correto.
+               data-ml-id é o código do anúncio usado pelo robô de preços. -->
+          <div class="price-block" data-slug="vivienne-kit2" data-ml-id="MLBU5129487228">
+            <span class="price-old">R$ 2.099,00</span>
+            <span class="price-new">R$ 1.549,00</span>
+            <span class="price-installments">em até <strong>10x de R$ 154,90</strong> sem juros</span>
+          </div>
+
+          <ul class="specs">
+            <li><strong>Medidas:</strong> 56 x 87 x 84 cm (L x P x A)</li>
+            <li><strong>Tecido:</strong> Linho Premium</li>
+            <li><strong>Peso suportado:</strong> até 130 kg</li>
+          </ul>
+
+          <div class="colors">
+            <span class="colors-label">Cores:</span>
+            <div class="swatches">
+              <span class="swatch" style="background:#d8c4a4" title="Bege" aria-label="Bege"></span>
+              <span class="swatch" style="background:#b7bbbd" title="Cinza Claro" aria-label="Cinza Claro"></span>
+              <span class="swatch" style="background:#5d6265" title="Cinza Escuro" aria-label="Cinza Escuro"></span>
+              <span class="swatch" style="background:#6d4a33" title="Marrom" aria-label="Marrom"></span>
+            </div>
+            <span class="colors-names">Bege, Cinza Claro, Cinza Escuro, Marrom</span>
+          </div>
+
+          <button type="button"
+                  class="btn-buy"
+                  data-product-name="Kit 2 Poltronas Vivienne"
+                  data-url="https://www.mercadolivre.com.br/kit-2-poltronas-decorativas-linho-pes-madeira-conjunto-sala/up/MLBU5129487228?picker=true&quantity=1">
+            Comprar no Mercado Livre
+          </button>
+
+          <div class="trust-icons">
+            <span class="trust-item"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M12 2 4 5v6c0 5 3.4 8.9 8 10 4.6-1.1 8-5 8-10V5l-8-3Zm-1.2 13.6-3.4-3.4 1.4-1.4 2 2 4.8-4.8 1.4 1.4-6.2 6.2Z"/></svg> Compra Segura</span>
+            <span class="trust-item"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4H4V6h16v2ZM4 18v-6h16v6H4Zm2-4h6v2H6v-2Z"/></svg> Pagamento via Mercado Pago</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="product-card" data-cat="kit-puff">
+        <div class="card-media">
+          <div class="badges">
+            <span class="badge badge-kit">Kit + Puff</span>
+          </div>
+          <div class="carousel" data-carousel>
+            <div class="carousel-track">
+              <img class="carousel-slide" src="vivienne-kit1-puff-1.jpg" alt="Kit 1 Poltrona Vivienne + 1 Puff - foto 1" loading="lazy">
+              <div class="carousel-slide slide-video">
+                <video src="vivienne-kit1-puff-video.mp4" poster="vivienne-kit1-puff-1.jpg"
+                       muted loop playsinline preload="metadata"></video>
+                <span class="video-pill">Vídeo</span>
+              </div>
+              <img class="carousel-slide" src="vivienne-kit1-puff-2.jpg" alt="Kit 1 Poltrona Vivienne + 1 Puff - foto 2" loading="lazy">
+              <img class="carousel-slide" src="vivienne-kit1-puff-3.jpg" alt="Kit 1 Poltrona Vivienne + 1 Puff - foto 3" loading="lazy">
+              <img class="carousel-slide" src="vivienne-kit1-puff-4.jpg" alt="Kit 1 Poltrona Vivienne + 1 Puff - foto 4" loading="lazy">
+            </div>
+            <button type="button" class="carousel-arrow prev" data-dir="-1" aria-label="Foto anterior">&#8249;</button>
+            <button type="button" class="carousel-arrow next" data-dir="1" aria-label="Próxima foto">&#8250;</button>
+            <div class="carousel-dots"></div>
+          </div>
+        </div>
+
+        <div class="card-body">
+          <h2 class="product-title">Kit 1 Poltrona Vivienne + 1 Puff</h2>
+
+          <div class="rating" aria-label="Avaliação 4.8 de 5, 158 avaliações">
+            <div class="stars" style="--rating:96%"><span></span></div>
+            <span class="rating-number">4,8</span>
+            <span class="rating-count">(158 avaliações)</span>
+          </div>
+
+          <!-- PREÇO: os valores abaixo são o PLANO B (aparecem se a atualização
+               automática falhar). Mantenha-os sempre com o preço correto.
+               data-ml-id é o código do anúncio usado pelo robô de preços. -->
+          <div class="price-block" data-slug="vivienne-kit1-puff" data-ml-id="MLBU5129185582">
+            <span class="price-old">R$ 1.699,00</span>
+            <span class="price-new">R$ 1.249,00</span>
+            <span class="price-installments">em até <strong>10x de R$ 124,90</strong> sem juros</span>
+          </div>
+
+          <ul class="specs">
+            <li><strong>Medidas:</strong> 56 x 87 x 84 cm (L x P x A)</li>
+            <li><strong>Tecido:</strong> Linho Premium</li>
+            <li><strong>Peso suportado:</strong> até 130 kg</li>
+          </ul>
+
+          <div class="colors">
+            <span class="colors-label">Cores:</span>
+            <div class="swatches">
+              <span class="swatch" style="background:#d8c4a4" title="Bege" aria-label="Bege"></span>
+              <span class="swatch" style="background:#b7bbbd" title="Cinza Claro" aria-label="Cinza Claro"></span>
+              <span class="swatch" style="background:#5d6265" title="Cinza Escuro" aria-label="Cinza Escuro"></span>
+              <span class="swatch" style="background:#6d4a33" title="Marrom" aria-label="Marrom"></span>
+            </div>
+            <span class="colors-names">Bege, Cinza Claro, Cinza Escuro, Marrom</span>
+          </div>
+
+          <button type="button"
+                  class="btn-buy"
+                  data-product-name="Kit 1 Poltrona Vivienne + 1 Puff"
+                  data-url="https://www.mercadolivre.com.br/kit-poltrona-decorativa-sala-linho-premium-e-puff/up/MLBU5129185582?picker=true&quantity=1">
+            Comprar no Mercado Livre
+          </button>
+
+          <div class="trust-icons">
+            <span class="trust-item"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M12 2 4 5v6c0 5 3.4 8.9 8 10 4.6-1.1 8-5 8-10V5l-8-3Zm-1.2 13.6-3.4-3.4 1.4-1.4 2 2 4.8-4.8 1.4 1.4-6.2 6.2Z"/></svg> Compra Segura</span>
+            <span class="trust-item"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4H4V6h16v2ZM4 18v-6h16v6H4Zm2-4h6v2H6v-2Z"/></svg> Pagamento via Mercado Pago</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="product-card" data-cat="kit">
+        <div class="card-media">
+          <div class="carousel" data-carousel>
+            <div class="carousel-track">
+              <img class="carousel-slide" src="amelie-kit2-1.jpg" alt="Kit 2 Poltronas Amélie - foto 1" loading="lazy">
+              <div class="carousel-slide slide-video">
+                <video src="amelie-kit2-video.mp4" poster="amelie-kit2-1.jpg"
+                       muted loop playsinline preload="metadata"></video>
+                <span class="video-pill">Vídeo</span>
+              </div>
+              <img class="carousel-slide" src="amelie-kit2-2.jpg" alt="Kit 2 Poltronas Amélie - foto 2" loading="lazy">
+              <img class="carousel-slide" src="amelie-kit2-3.jpg" alt="Kit 2 Poltronas Amélie - foto 3" loading="lazy">
+              <img class="carousel-slide" src="amelie-kit2-4.jpg" alt="Kit 2 Poltronas Amélie - foto 4" loading="lazy">
+            </div>
+            <button type="button" class="carousel-arrow prev" data-dir="-1" aria-label="Foto anterior">&#8249;</button>
+            <button type="button" class="carousel-arrow next" data-dir="1" aria-label="Próxima foto">&#8250;</button>
+            <div class="carousel-dots"></div>
+          </div>
+        </div>
+
+        <div class="card-body">
+          <h2 class="product-title">Kit 2 Poltronas Amélie</h2>
+
+          <div class="rating" aria-label="Avaliação 4.7 de 5, 126 avaliações">
+            <div class="stars" style="--rating:94%"><span></span></div>
+            <span class="rating-number">4,7</span>
+            <span class="rating-count">(126 avaliações)</span>
+          </div>
+
+          <!-- PREÇO: os valores abaixo são o PLANO B (aparecem se a atualização
+               automática falhar). Mantenha-os sempre com o preço correto.
+               data-ml-id é o código do anúncio usado pelo robô de preços. -->
+          <div class="price-block" data-slug="amelie-kit2" data-ml-id="MLBU5095413361">
+            <span class="price-old">R$ 1.899,00</span>
+            <span class="price-new">R$ 1.399,00</span>
+            <span class="price-installments">em até <strong>10x de R$ 139,90</strong> sem juros</span>
+          </div>
+
+          <ul class="specs">
+            <li><strong>Medidas:</strong> 56 x 78 x 80 cm (L x P x A)</li>
+            <li><strong>Tecido:</strong> Linho Premium</li>
+            <li><strong>Peso suportado:</strong> até 130 kg</li>
+          </ul>
+
+          <div class="colors">
+            <span class="colors-label">Cores:</span>
+            <div class="swatches">
+              <span class="swatch" style="background:#d8c4a4" title="Bege" aria-label="Bege"></span>
+              <span class="swatch" style="background:#b7bbbd" title="Cinza Claro" aria-label="Cinza Claro"></span>
+              <span class="swatch" style="background:#5d6265" title="Cinza Escuro" aria-label="Cinza Escuro"></span>
+            </div>
+            <span class="colors-names">Bege, Cinza Claro, Cinza Escuro</span>
+          </div>
+
+          <button type="button"
+                  class="btn-buy"
+                  data-product-name="Kit 2 Poltronas Amélie"
+                  data-url="https://www.mercadolivre.com.br/kit-2-poltronas-decorativas-linho-pes-madeira-conjunto-sala/up/MLBU5095413361?picker=true&quantity=1">
+            Comprar no Mercado Livre
+          </button>
+
+          <div class="trust-icons">
+            <span class="trust-item"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M12 2 4 5v6c0 5 3.4 8.9 8 10 4.6-1.1 8-5 8-10V5l-8-3Zm-1.2 13.6-3.4-3.4 1.4-1.4 2 2 4.8-4.8 1.4 1.4-6.2 6.2Z"/></svg> Compra Segura</span>
+            <span class="trust-item"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4H4V6h16v2ZM4 18v-6h16v6H4Zm2-4h6v2H6v-2Z"/></svg> Pagamento via Mercado Pago</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="product-card" data-cat="kit">
+        <div class="card-media">
+          <div class="carousel" data-carousel>
+            <div class="carousel-track">
+              <img class="carousel-slide" src="celine-kit2-1.jpg" alt="Kit 2 Poltronas Celine - foto 1" loading="lazy">
+              <div class="carousel-slide slide-video">
+                <video src="celine-kit2-video.mp4" poster="celine-kit2-1.jpg"
+                       muted loop playsinline preload="metadata"></video>
+                <span class="video-pill">Vídeo</span>
+              </div>
+              <img class="carousel-slide" src="celine-kit2-2.jpg" alt="Kit 2 Poltronas Celine - foto 2" loading="lazy">
+              <img class="carousel-slide" src="celine-kit2-3.jpg" alt="Kit 2 Poltronas Celine - foto 3" loading="lazy">
+              <img class="carousel-slide" src="celine-kit2-4.jpg" alt="Kit 2 Poltronas Celine - foto 4" loading="lazy">
+            </div>
+            <button type="button" class="carousel-arrow prev" data-dir="-1" aria-label="Foto anterior">&#8249;</button>
+            <button type="button" class="carousel-arrow next" data-dir="1" aria-label="Próxima foto">&#8250;</button>
+            <div class="carousel-dots"></div>
+          </div>
+        </div>
+
+        <div class="card-body">
+          <h2 class="product-title">Kit 2 Poltronas Celine</h2>
+
+          <div class="rating" aria-label="Avaliação 4.8 de 5, 167 avaliações">
+            <div class="stars" style="--rating:96%"><span></span></div>
+            <span class="rating-number">4,8</span>
+            <span class="rating-count">(167 avaliações)</span>
+          </div>
+
+          <!-- PREÇO: os valores abaixo são o PLANO B (aparecem se a atualização
+               automática falhar). Mantenha-os sempre com o preço correto.
+               data-ml-id é o código do anúncio usado pelo robô de preços. -->
+          <div class="price-block" data-slug="celine-kit2" data-ml-id="MLBU5129487226">
+            <span class="price-old">R$ 1.999,00</span>
+            <span class="price-new">R$ 1.499,00</span>
+            <span class="price-installments">em até <strong>10x de R$ 149,90</strong> sem juros</span>
+          </div>
+
+          <ul class="specs">
+            <li><strong>Medidas:</strong> 56 x 87 x 84 cm (L x P x A)</li>
+            <li><strong>Tecido:</strong> Linho Premium</li>
+            <li><strong>Peso suportado:</strong> até 130 kg</li>
+          </ul>
+
+          <div class="colors">
+            <span class="colors-label">Cores:</span>
+            <div class="swatches">
+              <span class="swatch" style="background:#d8c4a4" title="Bege" aria-label="Bege"></span>
+              <span class="swatch" style="background:#b7bbbd" title="Cinza Claro" aria-label="Cinza Claro"></span>
+              <span class="swatch" style="background:#5d6265" title="Cinza Escuro" aria-label="Cinza Escuro"></span>
+            </div>
+            <span class="colors-names">Bege, Cinza Claro, Cinza Escuro</span>
+          </div>
+
+          <button type="button"
+                  class="btn-buy"
+                  data-product-name="Kit 2 Poltronas Celine"
+                  data-url="https://www.mercadolivre.com.br/kit-2-poltronas-decorativas-linho-pes-madeira-conjunto-sala/up/MLBU5129487226?picker=true&quantity=1">
+            Comprar no Mercado Livre
+          </button>
+
+          <div class="trust-icons">
+            <span class="trust-item"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M12 2 4 5v6c0 5 3.4 8.9 8 10 4.6-1.1 8-5 8-10V5l-8-3Zm-1.2 13.6-3.4-3.4 1.4-1.4 2 2 4.8-4.8 1.4 1.4-6.2 6.2Z"/></svg> Compra Segura</span>
+            <span class="trust-item"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4H4V6h16v2ZM4 18v-6h16v6H4Zm2-4h6v2H6v-2Z"/></svg> Pagamento via Mercado Pago</span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <img class="logo-footer" src="logo-zaronn.png" alt="Zaronn Estofados">
+    <p>&copy; <span id="ano-atual"></span> Zaronn Estofados. Todos os direitos reservados.</p>
+    <p class="footer-note">Compra processada com segurança pelo Mercado Livre / Mercado Pago.</p>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+  var anoEl = document.getElementById('ano-atual');
+  if (anoEl) anoEl.textContent = new Date().getFullYear();
+
+  // ---------------------------------------------------------
+  // 1) CARROSSÉIS — um por card, independentes entre si
+  // ---------------------------------------------------------
+  document.querySelectorAll('[data-carousel]').forEach(initCarousel);
+
+  function initCarousel(carousel) {
+    var track = carousel.querySelector('.carousel-track');
+    var slides = Array.prototype.slice.call(track.children);
+    var dotsWrap = carousel.querySelector('.carousel-dots');
+    var index = 0, startX = 0, isDragging = false, visivel = true;
+
+    slides.forEach(function (slide, i) {
+      var dot = document.createElement('button');
+      dot.type = 'button';
+      dot.className = 'dot' + (i === 0 ? ' active' : '');
+      dot.setAttribute('aria-label', 'Ir para o item ' + (i + 1));
+      dot.addEventListener('click', function () { goTo(i); });
+      dotsWrap.appendChild(dot);
+    });
+
+    // Toca o vídeo do slide atual (se houver) e pausa todos os outros
+    function tocarAtual() {
+      slides.forEach(function (slide, i) {
+        var video = slide.tagName === 'VIDEO' ? slide : slide.querySelector('video');
+        if (!video) return;
+        if (i === index && visivel) {
+          var p = video.play();
+          if (p && p.catch) p.catch(function () {}); // navegador bloqueou: ignora
+        } else {
+          video.pause();
+        }
+      });
+    }
+
+    // Pausa o vídeo quando o card sai da tela (economiza bateria e dados)
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (entries) {
+        visivel = entries[0].isIntersecting;
+        tocarAtual();
+      }, { threshold: 0.35 }).observe(carousel);
+    }
+
+    function update() {
+      track.style.transform = 'translateX(-' + (index * 100) + '%)';
+      dotsWrap.querySelectorAll('.dot').forEach(function (d, i) {
+        d.classList.toggle('active', i === index);
+      });
+      tocarAtual();
+    }
+    function goTo(i) { index = (i + slides.length) % slides.length; update(); }
+
+    update();
+
+    carousel.querySelectorAll('.carousel-arrow').forEach(function (btn) {
+      btn.addEventListener('click', function () { goTo(index + parseInt(btn.dataset.dir, 10)); });
+    });
+
+    track.addEventListener('touchstart', function (e) {
+      startX = e.touches[0].clientX; isDragging = true;
+    }, { passive: true });
+
+    track.addEventListener('touchend', function (e) {
+      if (!isDragging) return;
+      isDragging = false;
+      var diff = e.changedTouches[0].clientX - startX;
+      if (Math.abs(diff) > 40) goTo(index + (diff < 0 ? 1 : -1));
+    }, { passive: true });
+  }
+
+  // ---------------------------------------------------------
+  // 2) FILTROS — cada card tem data-cat; os chips têm data-filter
+  // ---------------------------------------------------------
+  var chips = document.querySelectorAll('.chip');
+  var cards = document.querySelectorAll('.product-card');
+
+  chips.forEach(function (chip) {
+    chip.addEventListener('click', function () {
+      var filtro = this.dataset.filter;
+      chips.forEach(function (c) { c.classList.toggle('active', c === chip); });
+      cards.forEach(function (card) {
+        var cats = (card.dataset.cat || '').split(' ');
+        card.hidden = !(filtro === 'todos' || cats.indexOf(filtro) !== -1);
+      });
+    });
+  });
+
+  // ---------------------------------------------------------
+  // 3) PREÇOS AUTOMÁTICOS — lê o arquivo precos.json, gerado de hora
+  //    em hora pelo robô (robo/atualizar-precos.js).
+  //
+  //    PLANO B: se o arquivo não existir, estiver velho ou vier com erro,
+  //    NADA é alterado e o preço escrito no HTML continua na tela.
+  //    O site nunca fica sem preço nem mostra R$ 0,00.
+  // ---------------------------------------------------------
+  var VALIDADE_HORAS = 48;  // acima disso o arquivo é ignorado por segurança
+
+  function moeda(valor) {
+    return valor.toLocaleString('pt-BR', {
+      style: 'currency', currency: 'BRL',
+      minimumFractionDigits: 2, maximumFractionDigits: 2
+    });
+  }
+
+  function aplicarPrecos(dados) {
+    if (!dados || !dados.produtos) return;
+
+    // Arquivo velho demais? Não confia nele.
+    var idade = (Date.now() - new Date(dados.atualizado_em).getTime()) / 36e5;
+    if (isNaN(idade) || idade > VALIDADE_HORAS) {
+      console.warn('precos.json desatualizado (' + Math.round(idade) + 'h). Mantendo os preços do HTML.');
+      return;
+    }
+
+    document.querySelectorAll('.price-block[data-slug]').forEach(function (bloco) {
+      var info = dados.produtos[bloco.dataset.slug];
+      if (!info || typeof info.preco !== 'number' || info.preco <= 0) return;
+
+      var novo = bloco.querySelector('.price-new');
+      var antigo = bloco.querySelector('.price-old');
+      var parcelas = bloco.querySelector('.price-installments');
+
+      if (novo) novo.textContent = moeda(info.preco);
+
+      // Preço riscado: só aparece se for realmente maior que o preço atual
+      if (antigo) {
+        if (typeof info.preco_original === 'number' && info.preco_original > info.preco) {
+          antigo.textContent = moeda(info.preco_original);
+          antigo.hidden = false;
+        } else {
+          antigo.hidden = true;
+        }
+      }
+
+      if (parcelas) {
+        parcelas.innerHTML = 'em até <strong>10x de ' + moeda(info.preco / 10) + '</strong> sem juros';
+      }
+    });
+  }
+
+  fetch('precos.json', { cache: 'no-store' })
+    .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
+    .then(aplicarPrecos)
+    .catch(function (e) {
+      console.warn('Não foi possível ler precos.json (' + e + '). Mantendo os preços do HTML.');
+    });
+
+  // ---------------------------------------------------------
+  // 4) BOTÕES DE COMPRA — Meta Pixel + redirecionamento
+  // ---------------------------------------------------------
+  document.querySelectorAll('.btn-buy').forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+
+      // Estes dois valores vêm dos atributos do botão no HTML.
+      // É só ali que você edita ao trocar de produto:
+      //   data-product-name="Nome do Kit/Poltrona"
+      //   data-url="https://produto.mercadolivre.com.br/SEU-LINK"
+      var productName = this.dataset.productName || 'Produto sem nome';
+      var destinationUrl = this.dataset.url;
+
+      if (!destinationUrl) {
+        console.warn('Botão sem data-url definido:', this);
+        return;
+      }
+
+      if (typeof fbq === 'function') {
+        fbq('track', 'InitiateCheckout', {
+          content_name: productName,
+          content_category: 'Poltronas',
+          currency: 'BRL'
+        });
+      }
+
+      // Pequeno atraso para o Pixel enviar o evento antes do redirect
+      setTimeout(function () { window.location.href = destinationUrl; }, 250);
+    });
+  });
+
+  // Prévia: mostra o evento que o Pixel receberia e abre o anúncio numa nova aba.
+  var toast = document.getElementById('toast');
+  var toastTimer;
+  document.querySelectorAll('.btn-buy').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      toast.innerHTML = '<code>InitiateCheckout &rarr; "' + this.dataset.productName + '"</code>' +
+        '<span class="toast-sub">Abrindo o anúncio deste modelo no Mercado Livre em uma nova aba. No site publicado, o Pixel dispara este evento antes do redirecionamento.</span>';
+      toast.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(function () { toast.classList.remove('show'); }, 5000);
+      window.open(this.dataset.url, '_blank', 'noopener');
+    });
+  });
+
+});
+</script>
+
+</body></html>
