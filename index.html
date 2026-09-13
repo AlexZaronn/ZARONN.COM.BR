@@ -1,5 +1,25 @@
 <!doctype html>
-<html><head><meta charset="utf8"><meta name="viewport" content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style><script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','694060228913114');fbq('track','PageView');</script></head><body>
+<html><head><meta charset="utf8"><meta name="viewport" content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style><script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','694060228913114');fbq('track','PageView');</script><style>.modal-frete[hidden]{display:none}
+.modal-frete{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;padding:16px}
+.modal-backdrop{position:absolute;inset:0;background:rgba(15,14,12,.6)}
+.modal-caixa{position:relative;background:var(--card-bg);border-radius:var(--radius-lg);box-shadow:0 24px 60px rgba(0,0,0,.3);width:100%;max-width:420px;padding:26px 22px 20px}
+.modal-x{position:absolute;top:10px;right:12px;border:none;background:none;cursor:pointer;font-size:1.5rem;line-height:1;color:var(--text-muted);padding:4px 8px}
+.modal-produto{margin:0 0 4px;font-size:.74rem;text-transform:uppercase;letter-spacing:.06em;color:var(--gold);font-weight:600}
+.modal-caixa h3{font-family:var(--font-title);font-size:1.15rem;margin:0 0 8px}
+.modal-sub{margin:0 0 16px;font-size:.87rem;color:var(--text-muted);line-height:1.5}
+#form-cep{display:flex;gap:8px;align-items:flex-end;flex-wrap:wrap}
+#form-cep label{display:block;font-size:.75rem;font-weight:600;margin-bottom:4px}
+#campo-cep{flex:1 1 140px;min-width:0;width:100%;font-family:var(--font-body);font-size:1rem;padding:12px 14px;border:1px solid var(--border);border-radius:var(--radius-md);background:#fff;color:var(--text)}
+#campo-cep:focus{outline:2px solid var(--gold);outline-offset:1px}
+.btn-cep{border:none;background:var(--brand-dark);color:var(--gold-light);font-family:var(--font-body);font-weight:600;font-size:.9rem;padding:12px 18px;border-radius:var(--radius-md);cursor:pointer}
+.btn-cep[disabled]{opacity:.6;cursor:progress}
+.modal-status{margin-top:14px;font-size:.87rem;line-height:1.5;min-height:1.2em}
+.modal-status.erro{color:var(--price-new)}
+.modal-status.ok{color:#1b7f3b}
+.btn-final{display:none;width:100%;margin-top:14px;background:var(--cta);color:#fff;text-align:center;text-decoration:none;font-weight:700;font-size:.95rem;padding:14px 18px;border-radius:var(--radius-md)}
+.btn-final:not([hidden]){display:block}
+.btn-final:hover{background:var(--cta-hover)}
+.modal-nota{margin:12px 0 0;font-size:.72rem;color:var(--text-muted);line-height:1.45}</style></head><body>
 <title>Zaronn Estofados</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -440,9 +460,7 @@ img { max-width: 100%; display: block; }
             <span class="colors-names">Bege, Cinza Claro, Cinza Escuro, Marrom</span>
           </div>
 
-          <button type="button" class="btn-buy" data-product-name="Kit 2 Poltronas Vivienne + 1 Puff" data-url="https://www.mercadolivre.com.br/kit-2-poltronas-decorativas--puff-linho-pes-madeira-sala/up/MLBU4112068864?picker=true&amp;quantity=1">
-            Comprar no Mercado Livre
-          </button>
+          <button type="button" class="btn-buy" data-product-name="Kit 2 Poltronas Vivienne + 1 Puff" data-url="https://www.mercadolivre.com.br/kit-2-poltronas-decorativas--puff-linho-pes-madeira-sala/up/MLBU4112068864?picker=true&amp;quantity=1">Verificar Frete e Disponibilidade</button>
 
           <div class="trust-icons">
             <span class="trust-item"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M12 2 4 5v6c0 5 3.4 8.9 8 10 4.6-1.1 8-5 8-10V5l-8-3Zm-1.2 13.6-3.4-3.4 1.4-1.4 2 2 4.8-4.8 1.4 1.4-6.2 6.2Z"></path></svg> Compra Segura</span>
@@ -507,9 +525,7 @@ img { max-width: 100%; display: block; }
             <span class="colors-names">Bege, Cinza Claro, Cinza Escuro</span>
           </div>
 
-          <button type="button" class="btn-buy" data-product-name="Kit 2 Poltronas Celine + 1 Puff" data-url="https://www.mercadolivre.com.br/kit-2-poltronas-decorativas--puff-linho-pes-madeira-sala/up/MLBU4096654879?picker=true&amp;quantity=1">
-            Comprar no Mercado Livre
-          </button>
+          <button type="button" class="btn-buy" data-product-name="Kit 2 Poltronas Celine + 1 Puff" data-url="https://www.mercadolivre.com.br/kit-2-poltronas-decorativas--puff-linho-pes-madeira-sala/up/MLBU4096654879?picker=true&amp;quantity=1">Verificar Frete e Disponibilidade</button>
 
           <div class="trust-icons">
             <span class="trust-item"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M12 2 4 5v6c0 5 3.4 8.9 8 10 4.6-1.1 8-5 8-10V5l-8-3Zm-1.2 13.6-3.4-3.4 1.4-1.4 2 2 4.8-4.8 1.4 1.4-6.2 6.2Z"></path></svg> Compra Segura</span>
@@ -574,9 +590,7 @@ img { max-width: 100%; display: block; }
             <span class="colors-names">Bege, Cinza Claro, Cinza Escuro</span>
           </div>
 
-          <button type="button" class="btn-buy" data-product-name="Kit 2 Poltronas Amélie + 1 Puff" data-url="https://www.mercadolivre.com.br/kit-2-poltronas-decorativas--puff-linho-pes-madeira-sala/up/MLBU4096653063?picker=true&amp;quantity=1">
-            Comprar no Mercado Livre
-          </button>
+          <button type="button" class="btn-buy" data-product-name="Kit 2 Poltronas Amélie + 1 Puff" data-url="https://www.mercadolivre.com.br/kit-2-poltronas-decorativas--puff-linho-pes-madeira-sala/up/MLBU4096653063?picker=true&amp;quantity=1">Verificar Frete e Disponibilidade</button>
 
           <div class="trust-icons">
             <span class="trust-item"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M12 2 4 5v6c0 5 3.4 8.9 8 10 4.6-1.1 8-5 8-10V5l-8-3Zm-1.2 13.6-3.4-3.4 1.4-1.4 2 2 4.8-4.8 1.4 1.4-6.2 6.2Z"></path></svg> Compra Segura</span>
@@ -636,9 +650,7 @@ img { max-width: 100%; display: block; }
             <span class="colors-names">Preto, Caramelo</span>
           </div>
 
-          <button type="button" class="btn-buy" data-product-name="Kit 2 Poltronas Celine Couro Sintético" data-url="https://www.mercadolivre.com.br/kit-2-poltronas-luxo-decorativas-couro-e-linho-recepcao-sala/up/MLBU3861232860?picker=true&amp;product_trigger_id=MLB70815825&amp;quantity=1">
-            Comprar no Mercado Livre
-          </button>
+          <button type="button" class="btn-buy" data-product-name="Kit 2 Poltronas Celine Couro Sintético" data-url="https://www.mercadolivre.com.br/kit-2-poltronas-luxo-decorativas-couro-e-linho-recepcao-sala/up/MLBU3861232860?picker=true&amp;product_trigger_id=MLB70815825&amp;quantity=1">Verificar Frete e Disponibilidade</button>
 
           <div class="trust-icons">
             <span class="trust-item"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M12 2 4 5v6c0 5 3.4 8.9 8 10 4.6-1.1 8-5 8-10V5l-8-3Zm-1.2 13.6-3.4-3.4 1.4-1.4 2 2 4.8-4.8 1.4 1.4-6.2 6.2Z"></path></svg> Compra Segura</span>
@@ -699,9 +711,7 @@ img { max-width: 100%; display: block; }
             <span class="colors-names">Off-White, Cinza Claro, Terracota</span>
           </div>
 
-          <button type="button" class="btn-buy" data-product-name="Poltrona Orgânica Redonda" data-url="https://www.mercadolivre.com.br/poltrona-organica-redonda-estofada-em-boucle-premium/up/MLBU5180485892?picker=true&amp;quantity=1">
-            Comprar no Mercado Livre
-          </button>
+          <button type="button" class="btn-buy" data-product-name="Poltrona Orgânica Redonda" data-url="https://www.mercadolivre.com.br/poltrona-organica-redonda-estofada-em-boucle-premium/up/MLBU5180485892?picker=true&amp;quantity=1">Verificar Frete e Disponibilidade</button>
 
           <div class="trust-icons">
             <span class="trust-item"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M12 2 4 5v6c0 5 3.4 8.9 8 10 4.6-1.1 8-5 8-10V5l-8-3Zm-1.2 13.6-3.4-3.4 1.4-1.4 2 2 4.8-4.8 1.4 1.4-6.2 6.2Z"></path></svg> Compra Segura</span>
@@ -758,9 +768,7 @@ img { max-width: 100%; display: block; }
             <span class="colors-names">Bege, Cinza Claro, Terracota</span>
           </div>
 
-          <button type="button" class="btn-buy" data-product-name="Poltrona Balance" data-url="https://www.mercadolivre.com.br/poltrona-balance-para-sala-com-leve-balanco-boucle-premium/up/MLBU5185645694?picker=true&amp;quantity=1">
-            Comprar no Mercado Livre
-          </button>
+          <button type="button" class="btn-buy" data-product-name="Poltrona Balance" data-url="https://www.mercadolivre.com.br/poltrona-balance-para-sala-com-leve-balanco-boucle-premium/up/MLBU5185645694?picker=true&amp;quantity=1">Verificar Frete e Disponibilidade</button>
 
           <div class="trust-icons">
             <span class="trust-item"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M12 2 4 5v6c0 5 3.4 8.9 8 10 4.6-1.1 8-5 8-10V5l-8-3Zm-1.2 13.6-3.4-3.4 1.4-1.4 2 2 4.8-4.8 1.4 1.4-6.2 6.2Z"></path></svg> Compra Segura</span>
@@ -819,9 +827,7 @@ img { max-width: 100%; display: block; }
             <span class="colors-names">Bege, Cinza Claro, Cinza Escuro, Marrom</span>
           </div>
 
-          <button type="button" class="btn-buy" data-product-name="Kit 2 Poltronas Vivienne" data-url="https://www.mercadolivre.com.br/kit-2-poltronas-decorativas-linho-pes-madeira-conjunto-sala/up/MLBU5129487228?picker=true&amp;quantity=1">
-            Comprar no Mercado Livre
-          </button>
+          <button type="button" class="btn-buy" data-product-name="Kit 2 Poltronas Vivienne" data-url="https://www.mercadolivre.com.br/kit-2-poltronas-decorativas-linho-pes-madeira-conjunto-sala/up/MLBU5129487228?picker=true&amp;quantity=1">Verificar Frete e Disponibilidade</button>
 
           <div class="trust-icons">
             <span class="trust-item"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M12 2 4 5v6c0 5 3.4 8.9 8 10 4.6-1.1 8-5 8-10V5l-8-3Zm-1.2 13.6-3.4-3.4 1.4-1.4 2 2 4.8-4.8 1.4 1.4-6.2 6.2Z"></path></svg> Compra Segura</span>
@@ -883,9 +889,7 @@ img { max-width: 100%; display: block; }
             <span class="colors-names">Bege, Cinza Claro, Cinza Escuro, Marrom</span>
           </div>
 
-          <button type="button" class="btn-buy" data-product-name="Kit 1 Poltrona Vivienne + 1 Puff" data-url="https://www.mercadolivre.com.br/kit-poltrona-decorativa-sala-linho-premium-e-puff/up/MLBU5129185582?picker=true&amp;quantity=1">
-            Comprar no Mercado Livre
-          </button>
+          <button type="button" class="btn-buy" data-product-name="Kit 1 Poltrona Vivienne + 1 Puff" data-url="https://www.mercadolivre.com.br/kit-poltrona-decorativa-sala-linho-premium-e-puff/up/MLBU5129185582?picker=true&amp;quantity=1">Verificar Frete e Disponibilidade</button>
 
           <div class="trust-icons">
             <span class="trust-item"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M12 2 4 5v6c0 5 3.4 8.9 8 10 4.6-1.1 8-5 8-10V5l-8-3Zm-1.2 13.6-3.4-3.4 1.4-1.4 2 2 4.8-4.8 1.4 1.4-6.2 6.2Z"></path></svg> Compra Segura</span>
@@ -943,9 +947,7 @@ img { max-width: 100%; display: block; }
             <span class="colors-names">Bege, Cinza Claro, Cinza Escuro</span>
           </div>
 
-          <button type="button" class="btn-buy" data-product-name="Kit 2 Poltronas Amélie" data-url="https://www.mercadolivre.com.br/kit-2-poltronas-decorativas-linho-pes-madeira-conjunto-sala/up/MLBU5095413361?picker=true&amp;quantity=1">
-            Comprar no Mercado Livre
-          </button>
+          <button type="button" class="btn-buy" data-product-name="Kit 2 Poltronas Amélie" data-url="https://www.mercadolivre.com.br/kit-2-poltronas-decorativas-linho-pes-madeira-conjunto-sala/up/MLBU5095413361?picker=true&amp;quantity=1">Verificar Frete e Disponibilidade</button>
 
           <div class="trust-icons">
             <span class="trust-item"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M12 2 4 5v6c0 5 3.4 8.9 8 10 4.6-1.1 8-5 8-10V5l-8-3Zm-1.2 13.6-3.4-3.4 1.4-1.4 2 2 4.8-4.8 1.4 1.4-6.2 6.2Z"></path></svg> Compra Segura</span>
@@ -1003,9 +1005,7 @@ img { max-width: 100%; display: block; }
             <span class="colors-names">Bege, Cinza Claro, Cinza Escuro</span>
           </div>
 
-          <button type="button" class="btn-buy" data-product-name="Kit 2 Poltronas Celine" data-url="https://www.mercadolivre.com.br/kit-2-poltronas-decorativas-linho-pes-madeira-conjunto-sala/up/MLBU5129487226?picker=true&amp;quantity=1">
-            Comprar no Mercado Livre
-          </button>
+          <button type="button" class="btn-buy" data-product-name="Kit 2 Poltronas Celine" data-url="https://www.mercadolivre.com.br/kit-2-poltronas-decorativas-linho-pes-madeira-conjunto-sala/up/MLBU5129487226?picker=true&amp;quantity=1">Verificar Frete e Disponibilidade</button>
 
           <div class="trust-icons">
             <span class="trust-item"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M12 2 4 5v6c0 5 3.4 8.9 8 10 4.6-1.1 8-5 8-10V5l-8-3Zm-1.2 13.6-3.4-3.4 1.4-1.4 2 2 4.8-4.8 1.4 1.4-6.2 6.2Z"></path></svg> Compra Segura</span>
@@ -1231,4 +1231,83 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <script>document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('.btn-buy').forEach(function(b){var c=b.cloneNode(true);b.parentNode.replaceChild(c,b);c.addEventListener('click',function(){var nome=this.dataset.productName||'Produto',destino=this.dataset.url;if(!destino)return;if(typeof fbq==='function'){fbq('track','InitiateCheckout',{content_name:nome,content_category:'Poltronas',currency:'BRL'});}setTimeout(function(){window.location.href=destino;},250);});});});</script>
 
-</body></html>
+
+<div class="modal-frete" id="modal-frete" hidden=""><div class="modal-backdrop" data-fechar=""></div><div class="modal-caixa" role="dialog" aria-modal="true" aria-labelledby="modal-titulo"><button type="button" class="modal-x" data-fechar="" aria-label="Fechar">×</button><p class="modal-produto" id="modal-produto"></p><h3 id="modal-titulo">Consultar entrega</h3><p class="modal-sub">Informe seu CEP para confirmarmos a região de entrega antes de você finalizar no Mercado Livre.</p><form id="form-cep" novalidate=""><div style="flex:1 1 140px"><label for="campo-cep">Seu CEP</label><input id="campo-cep" name="cep" inputmode="numeric" autocomplete="postal-code" maxlength="9" placeholder="00000-000" required=""></div><button type="submit" class="btn-cep" id="btn-cep">Consultar</button></form><div class="modal-status" id="modal-status" role="status" aria-live="polite"></div><a class="btn-final" id="btn-final" href="#" hidden="" rel="noopener">Finalizar no Mercado Livre</a><p class="modal-nota">O valor exato do frete, o prazo e eventuais descontos são calculados pelo Mercado Livre na tela seguinte, de acordo com o seu CEP.</p></div></div><script>document.addEventListener('DOMContentLoaded', function () {
+  var CAPI_ENDPOINT = '';
+  var modal = document.getElementById('modal-frete');
+  if (!modal) return;
+  var mProduto = document.getElementById('modal-produto');
+  var mStatus = document.getElementById('modal-status');
+  var mForm = document.getElementById('form-cep');
+  var mCep = document.getElementById('campo-cep');
+  var mBtn = document.getElementById('btn-cep');
+  var mFinal = document.getElementById('btn-final');
+  var atual = null, ultimoFoco = null;
+  function soDigitos(s){ var o=''; for (var i=0;i<s.length;i++){ var c=s.charAt(i); if (c>='0'&&c<='9') o+=c; } return o; }
+  function uuid(){ return 'e-'+Date.now().toString(36)+'-'+Math.random().toString(36).slice(2,10); }
+  function cookie(nome){ var p=document.cookie.split('; '); for (var i=0;i<p.length;i++){ var kv=p[i].split('='); if (kv[0]===nome) return kv.slice(1).join('='); } return null; }
+  function precoDoCard(card){ var el=card.querySelector('.price-new'); if(!el) return null; var t=soDigitos(el.textContent); return t ? parseInt(t,10)/100 : null; }
+  function abrirModal(btn){
+    var card = btn.closest('.product-card');
+    var pb = card ? card.querySelector('.price-block[data-slug]') : null;
+    atual = { nome: btn.getAttribute('data-product-name')||'', url: btn.getAttribute('data-url')||'', slug: pb ? pb.getAttribute('data-slug') : '', valor: card ? precoDoCard(card) : null };
+    mProduto.textContent = atual.nome;
+    mStatus.textContent = ''; mStatus.className = 'modal-status';
+    mFinal.hidden = true; mCep.value = '';
+    modal.hidden = false; document.body.style.overflow = 'hidden'; ultimoFoco = btn;
+    setTimeout(function(){ mCep.focus(); }, 50);
+    if (typeof fbq === 'function') fbq('trackCustom','VerificouFrete',{content_name:atual.nome, currency:'BRL', value:atual.valor||undefined});
+  }
+  function fechar(){ modal.hidden = true; document.body.style.overflow=''; if (ultimoFoco) ultimoFoco.focus(); }
+  var fech = modal.querySelectorAll('[data-fechar]');
+  for (var i=0;i<fech.length;i++) fech[i].addEventListener('click', fechar);
+  document.addEventListener('keydown', function(e){ if (e.key==='Escape' && !modal.hidden) fechar(); });
+  mCep.addEventListener('input', function(){ var v=soDigitos(this.value).slice(0,8); this.value = v.length>5 ? v.slice(0,5)+'-'+v.slice(5) : v; });
+  mForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    var cep = soDigitos(mCep.value);
+    if (cep.length !== 8){ mStatus.className='modal-status erro'; mStatus.textContent='Digite um CEP com 8 números.'; return; }
+    mBtn.disabled = true; mStatus.className='modal-status'; mStatus.textContent='Consultando...';
+    fetch('https://viacep.com.br/ws/'+cep+'/json/').then(function(r){ return r.json(); }).then(function(d){
+      mBtn.disabled = false;
+      if (d.erro){ mStatus.className='modal-status erro'; mStatus.textContent='CEP não encontrado. Confira os números e tente de novo.'; return; }
+      var local = (d.bairro ? d.bairro+', ' : '') + d.localidade + ' - ' + d.uf;
+      mStatus.className='modal-status ok';
+      mStatus.textContent='CEP confirmado: '+local+'. Enviamos para todo o Brasil pelo Mercado Livre.';
+      mFinal.hidden=false; mFinal.href=atual.url; atual.cep=cep;
+      if (typeof fbq === 'function') fbq('trackCustom','CepValidado',{cidade:d.localidade, uf:d.uf, content_name:atual.nome});
+    }).catch(function(){
+      mBtn.disabled=false; mStatus.className='modal-status';
+      mStatus.textContent='Não consegui consultar o CEP agora, mas você pode seguir: o Mercado Livre calcula o frete na próxima tela.';
+      mFinal.hidden=false; mFinal.href=atual.url;
+    });
+  });
+  mFinal.addEventListener('click', function(e){
+    e.preventDefault();
+    if (!atual || !atual.url) return;
+    var eventId = uuid();
+    var dados = { content_name:atual.nome, content_category:'Poltronas', content_ids:[atual.slug||atual.nome], currency:'BRL' };
+    if (atual.valor) dados.value = atual.valor;
+    if (typeof fbq === 'function') fbq('track','InitiateCheckout', dados, { eventID: eventId });
+    if (CAPI_ENDPOINT) { try {
+      var corpo = JSON.stringify({ event_id:eventId, event_name:'InitiateCheckout', event_source_url:location.href, content_name:atual.nome, content_id:atual.slug||'', value:atual.valor||null, currency:'BRL', cep:atual.cep||null, fbp:cookie('_fbp'), fbc:cookie('_fbc') });
+      if (navigator.sendBeacon) { navigator.sendBeacon(CAPI_ENDPOINT, new Blob([corpo], {type:'application/json'})); }
+      else { fetch(CAPI_ENDPOINT, {method:'POST', headers:{'Content-Type':'application/json'}, body:corpo, keepalive:true}); }
+    } catch (err) {} }
+    setTimeout(function(){ window.location.href = atual.url; }, 250);
+  });
+  var bts = document.querySelectorAll('.btn-buy');
+  for (var j=0;j<bts.length;j++){
+    var b = bts[j]; var novo = b.cloneNode(true);
+    novo.textContent = 'Verificar Frete e Disponibilidade';
+    b.parentNode.replaceChild(novo, b);
+    novo.addEventListener('click', function(){ abrirModal(this); });
+  }
+  var jaRolou = false;
+  function checarScroll(){
+    if (jaRolou) return;
+    var total = document.documentElement.scrollHeight - window.innerHeight;
+    if (total > 0 && (window.scrollY/total) >= 0.5){ jaRolou = true; if (typeof fbq==='function') fbq('trackCustom','Scroll50'); window.removeEventListener('scroll', checarScroll); }
+  }
+  window.addEventListener('scroll', checarScroll, {passive:true}); checarScroll();
+});</script></body></html>
